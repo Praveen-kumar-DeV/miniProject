@@ -1,6 +1,6 @@
 # miniProject
 Full Stack Web Development Workshop
-# Tecnologies
+# Technologies
 - ReactJs
 - Firebase
 - NodeJs
