@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "@mui/material";
 class Home extends Component {
   state = {};
 
@@ -15,16 +16,17 @@ class Home extends Component {
       <div>
         <center>
           <h1>Home</h1>
-          <button
-            className="ui primary button"
+          <Button
+            variant="outlined"
             onClick={() => this.handleNavigation("Login")}>
-            <p>Login</p>
-          </button>
-          <button
-            className="ui primary button"
+            Login
+          </Button>
+          <p></p>
+          <Button
+            variant="outlined"
             onClick={() => this.handleNavigation("Register")}>
-            <p>Register</p>
-          </button>
+            Register
+          </Button>
         </center>
       </div>
     );

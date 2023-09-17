@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
   constructor(props) {
