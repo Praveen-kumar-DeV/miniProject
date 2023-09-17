@@ -4,11 +4,19 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isAuthenticated: false,
+    };
   }
-  state = {};
+  handleAuth = () => {
+    this.setState({});
+  };
+
   render() {
     return (
       <Router>
@@ -17,7 +25,7 @@ class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
 
-          <Route path="/profile" component={Dashboard} />
+          <PrivateRoute path="/profile" component={Dashboard} />
         </Switch>
       </Router>
     );

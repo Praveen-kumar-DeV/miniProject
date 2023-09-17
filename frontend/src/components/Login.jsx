@@ -46,6 +46,7 @@ class Login extends Component {
     console.log(response.user);
     let temp = response.user;
     localStorage.setItem("user_data", JSON.stringify(temp));
+    localStorage.setItem("isLogin", true);
     this.props.history.push("/profile");
   };
   handleLogin = () => {
@@ -158,4 +159,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

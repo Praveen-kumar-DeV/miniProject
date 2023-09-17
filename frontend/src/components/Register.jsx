@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
+import { withRouter } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 import { initializeApp } from "firebase/app";
@@ -53,6 +53,7 @@ class Register extends Component {
     console.log(response.user);
     let temp = response.user;
     localStorage.setItem("user_data", JSON.stringify(temp));
+    localStorage.setItem("isLogin", true);
     this.props.history.push("/profile");
   };
   handleRegister = () => {
@@ -103,34 +104,6 @@ class Register extends Component {
   render() {
     return (
       <div>
-        {/* <center>
-            <h1>Register</h1>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={(x) => this.handleEmail(x)}
-              placeholder="Email ID"
-              className="enterEmail"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={(x) => this.handlePassword(x)}
-              placeholder="Password"
-              className="enterEmail"
-            />
-            <br />
-            <button className="sendMail" onClick={() => this.handleRegister()}>
-              <p>Register</p>
-            </button>
-            <br />
-            <button
-              className="googleLogin"
-              onClick={() => this.handleGoogleRegister()}>
-              <p>Sign Up with Google</p>
-            </button>
-          </center> */}
         <div className="ui segment">
           <div className="ui placeholder segment">
             <div className="ui two column very relaxed stackable grid">
@@ -196,4 +169,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
