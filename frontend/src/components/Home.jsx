@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "@mui/material";
+import Section1 from "../containers/section1";
 class Home extends Component {
   state = {};
 
@@ -28,6 +29,7 @@ class Home extends Component {
             Register
           </Button>
         </center>
+        <Section1 />
       </div>
     );
   }

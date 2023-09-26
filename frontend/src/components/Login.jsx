@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import Button from "@mui/material/Button";
+import GoogleIcon from "@mui/icons-material/Google";
 import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { initializeApp } from "firebase/app";
 import { ToastContainer, toast } from "react-toastify";
-
+import { Container, IconButton, Stack, Typography, Box } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 import {
   getAuth,
@@ -11,6 +12,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+
+import TextField from "@mui/material/TextField";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAqY2k6c_f6HAUBzC9IvViWoDMLoAcjaSo",
@@ -95,53 +98,59 @@ class Login extends Component {
   };
   render() {
     return (
-      <div className="ui segment">
-        <div className="ui placeholder segment">
-          <div className="ui two column very relaxed stackable grid">
-            <div className="column">
-              <div className="ui form">
-                <div className="field">
-                  <label>Username</label>
-                  <div className="ui left icon input">
-                    <input
-                      type="text"
-                      placeholder="email"
-                      value={this.state.email}
-                      onChange={(e) => this.handleEmail(e)}
-                    />
-                    <i className="user icon"></i>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Password</label>
-                  <div className="ui left icon input">
-                    <input
-                      type="password"
-                      placeholder="password"
-                      value={this.state.password}
-                      onChange={(e) => this.handlePassword(e)}
-                    />
-                    <i className="lock icon"></i>
-                  </div>
-                </div>
-                <div
-                  className="ui blue submit button"
-                  onClick={() => this.handleLogin()}>
-                  Login
-                </div>
-              </div>
-            </div>
-            <div className="middle aligned column">
-              <div
-                className="ui big button"
-                onClick={() => this.handleGoogleRegister()}>
-                <i className="signup icon"></i>
-                Sign In With Google
-              </div>
-            </div>
-          </div>
-          <div className="ui vertical divider">Or</div>
-        </div>
+      <div>
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+            display: "block",
+            alignItems: "center",
+            top: "100px",
+            position: "relative",
+            margin: "0 25%",
+            borderRadius: "4px",
+            boxShadow: "0 0 50px 15px #48abe0",
+            padding: "10px",
+          }}
+          noValidate
+          autoComplete="off">
+          <Stack
+            direction="column"
+            alignItems="center"
+            justifyContent="space-between"
+            spacing={2}>
+            <TextField
+              required
+              id="outlined-required"
+              label="Username"
+              type="text"
+              value={this.state.email}
+              onChange={(e) => this.handleEmail(e)}
+            />
+            <TextField
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              value={this.state.password}
+              onChange={(e) => this.handlePassword(e)}
+            />
+            <Button
+              size="large"
+              variant="outlined"
+              sx={{ height: "223.75 px", width: "56.14 px", color: "red" }}
+              onClick={() => this.handleLogin()}>
+              Login
+            </Button>
+            <Button
+              size="large"
+              variant="outlined"
+              onClick={() => this.handleGoogleRegister()}>
+              <GoogleIcon />
+              Sign In With Google
+            </Button>
+          </Stack>
+        </Box>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}
